@@ -1,0 +1,134 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CleanApp.Helpers"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    >
+
+    <Style x:Key="RadioButton_style_iconAndText" 
+           TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource brush_ribbon_dark}"/>
+        <Setter Property="Foreground" Value="{DynamicResource brush_00}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource brush_00}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            SnapsToDevicePixels="True">
+                        
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Column="0"
+                                  Grid.Row="0" Grid.RowSpan="2"
+                                  Width="20" 
+                                  Height="20" 
+                                  Margin="15,0,0,0"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Left">
+
+                                <materialDesign:PackIcon x:Name="icon"
+                                                         Kind="{Binding Path=(local:ButtonIconHelper.IconKind),
+                                                                RelativeSource={RelativeSource TemplatedParent}}"
+                                                         Width="20" Height="20"
+                                                         Foreground="{DynamicResource brush_leading}"/>
+                            </Grid>
+
+                            <TextBlock Grid.Column="1"
+                                       Grid.Row="0" Grid.RowSpan="2"
+                                       x:Name="text"
+                                       Text="{TemplateBinding Content}"
+                                       Foreground="{DynamicResource brush_leading}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="{DynamicResource font_size_button}"/>
+
+                            <Border Grid.Column="0" Grid.ColumnSpan="3"
+                                    Grid.Row="1"
+                                    x:Name="bar"
+                                    Height="0"
+                                    VerticalAlignment="Bottom"
+                                    Background="{DynamicResource brush_leading}"
+                                    />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="bar" Property="Height" Value="3"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource brush_ribbon_light}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="RadioButton_style_iconOnly" 
+           TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource brush_ribbon_dark}"/>
+        <Setter Property="Foreground" Value="{DynamicResource brush_00}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource brush_00}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            SnapsToDevicePixels="True">
+
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Grid.RowSpan="2"
+                                  Width="20" 
+                                  Height="20"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center">
+
+                                <materialDesign:PackIcon x:Name="icon"
+                                                         Kind="{Binding Path=(local:ButtonIconHelper.IconKind),
+                                                                RelativeSource={RelativeSource TemplatedParent}}"
+                                                         Width="20" Height="20"
+                                                         Foreground="{DynamicResource brush_leading}"/>
+                            </Grid>
+
+                            <Border Grid.Row="1"
+                                    x:Name="bar"
+                                    Height="0"
+                                    VerticalAlignment="Bottom"
+                                    Background="{DynamicResource brush_leading}"
+                                    />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="bar" Property="Height" Value="3"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource brush_ribbon_light}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+
+    
+</ResourceDictionary>

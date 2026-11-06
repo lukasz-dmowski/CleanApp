@@ -1,0 +1,98 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    >
+
+    <Color x:Key="color_00"></Color>
+    <SolidColorBrush x:Key="brush_00"
+                     Color="{StaticResource color_00}"/>
+
+    <Color x:Key="color_01">#ffffff</Color>
+    <SolidColorBrush x:Key="brush_01" 
+                     Color="{StaticResource color_01}"/>
+
+    <Color x:Key="color_02">#000000</Color>
+    <SolidColorBrush x:Key="brush_02" 
+                     Color="{StaticResource color_02}"/>
+
+    <Color x:Key="color_11">#002254</Color>
+    <SolidColorBrush x:Key="brush_11"
+                     Color="{StaticResource color_11}"/>
+    <Color x:Key="color_11a">#002C6E</Color>
+    <SolidColorBrush x:Key="brush_11a"
+                     Color="{StaticResource color_11a}"/>    
+    <Color x:Key="color_21">#00B5B5</Color>
+    <SolidColorBrush x:Key="brush_21"
+                     Color="{StaticResource color_21}"/>
+
+    <Color x:Key="color_transparent"></Color>
+    <SolidColorBrush x:Key="brush_transparent"
+                     Color="{StaticResource color_transparent}"/>
+    
+    <Color x:Key="color_background_light">#eae9f7</Color>
+    <SolidColorBrush x:Key="brush_background_light"
+                     Color="{StaticResource color_background_light}"/>
+    <Color x:Key="color_background_dark">#dbdfea</Color>
+    <SolidColorBrush x:Key="brush_background_dark"
+                     Color="{StaticResource color_background_dark}"/>
+
+    <Color x:Key="color_ribbon_light">#2196f3</Color>
+    <SolidColorBrush x:Key="brush_ribbon_light"
+                     Color="{StaticResource color_ribbon_light}"/>
+    <Color x:Key="color_ribbon_dark">#1C5A94</Color>
+    <SolidColorBrush x:Key="brush_ribbon_dark"
+                     Color="{StaticResource color_ribbon_dark}"/>
+
+    <Color x:Key="color_object_primary_dark">#1C5A94</Color>
+    <SolidColorBrush x:Key="brush_object_primary_dark"
+                     Color="{StaticResource color_object_primary_dark}"/>
+    <Color x:Key="color_object_primary_light">#2196f3</Color>
+    <SolidColorBrush x:Key="brush_object_primary_light"
+                     Color="{StaticResource color_object_primary_light}"/>
+    
+    <Color x:Key="color_object_secondary_dark">#858585</Color>
+    <SolidColorBrush x:Key="brush_object_secondary_dark"
+                     Color="{StaticResource color_object_secondary_dark}"/>
+    <Color x:Key="color_object_secondary_light">#BABABA</Color>
+    <SolidColorBrush x:Key="brush_object_secondary_light"
+                     Color="{StaticResource color_object_secondary_light}"/>
+
+    <Color x:Key="color_text_dark">#000000</Color>
+    <SolidColorBrush x:Key="brush_text_dark"
+                     Color="{StaticResource color_text_dark}"/>
+    <Color x:Key="color_text_light">#858585</Color>
+    <SolidColorBrush x:Key="brush_text_light"
+                     Color="{StaticResource color_text_light}"/>
+    
+    <Color x:Key="color_shadow">#6D7998</Color>
+    <SolidColorBrush x:Key="brush_shadow"
+                     Color="{StaticResource color_shadow}"/>
+
+    <Color x:Key="color_icon">#707070</Color>
+    <SolidColorBrush x:Key="brush_icon"
+                     Color="{StaticResource color_icon}"/>    
+    
+    <Color x:Key="color_dashboard_tile_light">#fefefe</Color>
+    <SolidColorBrush x:Key="brush_dashboard_tile_light"
+                     Color="{StaticResource color_dashboard_tile_light}"/>
+    <Color x:Key="color_dashboard_tile_dark">#F5F5F5</Color>
+    <SolidColorBrush x:Key="brush_dashboard_tile_dark"
+                     Color="{StaticResource color_dashboard_tile_dark}"/>
+    
+    <Color x:Key="color_leading">#fefefe</Color>
+    <SolidColorBrush x:Key="brush_leading"
+                     Color="{StaticResource color_leading}"/>
+
+    <Color x:Key="color_accent_a">#ffae53</Color>
+    <SolidColorBrush x:Key="brush_accent_a"
+                     Color="{StaticResource color_accent_a}"/>
+    <Color x:Key="color_accent_b">#15b3fd</Color>
+    <SolidColorBrush x:Key="brush_accent_b"
+                     Color="{StaticResource color_accent_b}"/>
+    <Color x:Key="color_accent_c">#36deaf</Color>
+    <SolidColorBrush x:Key="brush_accent_c"
+                     Color="{StaticResource color_accent_c}"/>
+
+</ResourceDictionary>

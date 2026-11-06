@@ -1,0 +1,563 @@
+﻿<UserControl x:Class="CleanApp.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CleanApp.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             xmlns:help="clr-namespace:CleanApp.Helpers"
+             xmlns:resources="clr-namespace:CleanApp.Resources"   
+             mc:Ignorable="d" 
+             d:DesignHeight="560" 
+             d:DesignWidth="1130"
+             d:Background="{StaticResource brush_background_dark}"
+             >
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="275"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="275"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="275"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="275"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+
+        </Grid.RowDefinitions>
+
+        <!--#region stage 1.A-->
+
+        <Border Grid.Column="0" Grid.ColumnSpan="3"
+                Grid.Row="0"
+                Style="{StaticResource border_style_dashboard_tile_light}" 
+                >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="1" 
+                            Grid.Row="1" 
+                            Orientation="Horizontal">
+                    <TextBlock Text="{x:Static resources:Language.Universal_TextBlock_AppName}"
+                               Style="{StaticResource textBlock_style_dashboardTitle}"
+                               />
+                    <TextBlock Text="{x:Static resources:Language.Universal_TextBlock_AppDescription}"
+                               Style="{StaticResource textBlock_style_dashboardHeader}"
+                               Margin="5 0 0 0"
+                               />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!--#endregion-->
+       
+        
+        <!--#region stage 3.A-->
+
+        <Border Grid.Column="4" Grid.ColumnSpan="3"
+                Grid.Row="0"
+                Style="{StaticResource border_style_dashboard_tile_light}" 
+                >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="255"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Column="3" 
+                         Grid.Row="1"
+                         Style="{StaticResource textBox_style_default}"
+                         Text="{Binding SearchPhrase, 
+                                        Mode=TwoWay, 
+                                        UpdateSourceTrigger=PropertyChanged}"
+                         x:Name="SearchTextBox"
+                         Padding="5 0 0 0"
+                         materialDesign:HintAssist.Hint="{x:Static resources:Language.Universal_TextBox_SearchPhrase_Hint}"
+                         materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                         materialDesign:TextFieldAssist.LeadingIcon="Magnify"
+                         materialDesign:TextFieldAssist.HasClearButton="True"
+                         />
+                         <!--KeyDown="SearchTextBox_KeyDown"-->                
+                <TextBlock Grid.Column="1" 
+                           Grid.Row="1"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_SearchBy}"
+                           Style="{StaticResource textBlock_style_dashboardHeader}"
+                           />
+                <Button Grid.Column="4"
+                        Grid.Row="1"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowSearchPhraseOrdersCommand}"
+                        />
+            </Grid> 
+        </Border>
+
+        <!--#endregion-->
+        
+        <!--#region stage 1-->
+
+        <Border Grid.Column="0"
+                Grid.Row="2"
+                Style="{StaticResource border_style_dashboard_tile_light}" 
+                >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="230"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="1" Grid.ColumnSpan="3"
+                            Grid.Row="1"
+                            Orientation="Horizontal" Height="30" VerticalAlignment="Top">
+                    <materialDesign:PackIcon Height="24"
+                                             Width="24"
+                                             Margin="0 0 10 0"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Kind="Numeric1CircleOutline"
+                                             />
+                    <TextBlock Text="{x:Static resources:Language.Dashboard_TextBlock_TitleSchedule}"
+                               Style="{StaticResource textBlock_style_dashboardHeader}"
+                               />
+                </StackPanel>
+                <lvc:PieChart Grid.Column="1" Grid.ColumnSpan="3"
+                              Grid.Row="2"
+                              Margin="30"
+                              Series="{Binding ScheduleOrdersSeries}"
+                              />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="3"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderOverdue}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="3"
+                           Text="{Binding UncompletedOverdueOrdersCount}"
+                           d:Text="0000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_a}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="3"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowUncompletedOverdueOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_a}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="4"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionOverdue}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="5"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderToday}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="5"
+                           Text="{Binding UncompletedTodayOrdersCount}"
+                           d:Text="0000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_b}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="5"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowUncompletedTodayOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_b}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="6"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionToday}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="7"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderUpcoming}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="7"
+                           Text="{Binding UncompletedUpcomingOrdersCount}"
+                           d:Text="0000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_c}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="7"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowUncompletedUpcomingOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_c}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="8"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionUpcoming}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+            </Grid>
+        </Border>
+
+
+        <!--#endregion-->
+
+        <!--#region stage 2-->
+
+        <Border Grid.Column="2"
+                Grid.Row="2"
+                Style="{StaticResource border_style_dashboard_tile_light}" 
+                >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="230"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="1" Grid.ColumnSpan="3"
+                            Grid.Row="1"
+                            Orientation="Horizontal">
+                    <materialDesign:PackIcon Height="24"
+                                             Width="24"
+                                             Margin="0 0 10 0"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Kind="Numeric2CircleOutline"
+                                             />
+                    <TextBlock Text="{x:Static resources:Language.Dashboard_TextBlock_TitleReadiness}"
+                               Style="{StaticResource textBlock_style_dashboardHeader}"
+                               />
+                </StackPanel>
+                <lvc:PieChart Grid.Column="1" Grid.ColumnSpan="3"
+                              Grid.Row="2"
+                              Margin="30"
+                              Series="{Binding ReadinessOrdersSeries}"
+                              />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="3"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderPending}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="3"
+                           Text="{Binding PendingOrdersCount}"
+                           d:Text="000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_a}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="3"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowPendingOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_a}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="4"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionPending}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="5"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderPartially}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="5"
+                           Text="{Binding PartialOrdersCount}"
+                           d:Text="000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_b}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="5"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowPartialOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_b}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="6"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionPartially}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="7"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderCompleted}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="7"
+                           Text="{Binding CompletedOrdersCount}"
+                           d:Text="000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_c}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="7"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowCompletedOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_c}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="8"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionCompleted}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+            </Grid>
+        </Border>
+
+        <!--#endregion-->       
+
+        
+        <!--#region stage 3-->
+
+        <Border Grid.Column="4"
+                Grid.Row="2"
+                Style="{StaticResource border_style_dashboard_tile_light}" 
+                >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="230"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="1" Grid.ColumnSpan="3"
+                            Grid.Row="1"
+                            Orientation="Horizontal">
+                    <materialDesign:PackIcon Height="24"
+                                             Width="24"
+                                             Margin="0 0 10 0"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Kind="Numeric3CircleOutline"
+                                             />
+                    <TextBlock Text="{x:Static resources:Language.Dashboard_TextBlock_TitleNotification}"
+                               Style="{StaticResource textBlock_style_dashboardHeader}"
+                               />
+                </StackPanel>
+                <lvc:PieChart Grid.Column="1" Grid.ColumnSpan="3"
+                              Grid.Row="2"
+                              Margin="30"
+                              Series="{Binding NotificationOrdersSeries}"
+                              />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="3"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderNotified}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}" Margin="0,0,0,4" VerticalAlignment="Bottom"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="3"
+                           Text="{Binding NotifiedOrdersCount}"
+                           d:Text="000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_c}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="3"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowNotifiedOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_c}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="4"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionNotified}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="5"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderNotNotified}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="5"
+                           Text="{Binding NotNotifiedOrdersCount}"
+                           d:Text="000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_a}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="5"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowNotNotifiedOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_a}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="6"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionNotNotified}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+            </Grid>
+        </Border>
+
+        <!--#endregion-->
+        
+        <!--#region stage 4-->
+
+        <Border Grid.Column="6"
+                Grid.Row="2"
+                Style="{StaticResource border_style_dashboard_tile_light}" 
+                >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="230"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="1" Grid.ColumnSpan="3"
+                            Grid.Row="1"
+                            Orientation="Horizontal">
+                    <materialDesign:PackIcon Height="24"
+                                             Width="24"
+                                             Margin="0 0 10 0"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"
+                                             Kind="Numeric4CircleOutline"
+                                             />
+                    <TextBlock Text="{x:Static resources:Language.Dashboard_TextBlock_TitleCollection}"
+                               Style="{StaticResource textBlock_style_dashboardHeader}"
+                               />
+                </StackPanel>
+                <lvc:PieChart Grid.Column="1" Grid.ColumnSpan="3"
+                              Grid.Row="2"
+                              Margin="30"
+                              Series="{Binding CollectionOrdersSeries}"
+                              />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="3"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderCollected}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="3"
+                           Text="{Binding CollectedOrdersCount}"
+                           d:Text="000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_c}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="3"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowCollectedOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_c}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="4"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionCollected}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+                <TextBlock Grid.Column="1"
+                           Grid.Row="5"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_HeaderNotCollected}"
+                           Style="{StaticResource textBlock_style_dashboardDescription}"
+                           />
+                <TextBlock Grid.Column="2"
+                           Grid.Row="5"
+                           Text="{Binding NotCollectedOrdersCount}"
+                           d:Text="000"
+                           Style="{StaticResource textBlock_style_dashboardNumber}"
+                           Foreground="{StaticResource brush_accent_a}"
+                           />
+                <Button Grid.Column="3"
+                        Grid.Row="5"                  
+                        Style="{StaticResource button_style_dashboardArrow}"
+                        Command="{Binding ShowNotCollectedOrdersCommand}"
+                        help:ButtonForegroundHelper.ForegroundBrush="{StaticResource brush_accent_a}"
+                        />
+                <TextBlock Grid.Column="1" Grid.ColumnSpan="3"
+                           Grid.Row="6"
+                           Text="{x:Static resources:Language.Dashboard_TextBlock_DescriptionNotCollected}"
+                           Style="{StaticResource textBlock_style_default}"
+                           />
+            </Grid>
+        </Border>
+
+        <!--#endregion-->
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="CleanApp.Views.ShellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CleanApp.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:help="clr-namespace:CleanApp.Helpers"
+             xmlns:resources="clr-namespace:CleanApp.Resources"
+             mc:Ignorable="d"
+             d:DesignHeight="680"
+             d:DesignWidth="1200"
+             Background="{StaticResource brush_background_dark}"
+             >
+    
+    <materialDesign:DialogHost Identifier="ShellDialog">
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+
+            <Border Grid.Column="0"
+                    Grid.ColumnSpan="5"
+                    Grid.Row="0"
+                    Background="{StaticResource brush_ribbon_dark}"
+                    />
+            <Border Grid.Column="0"
+                    Grid.ColumnSpan="5"
+                    Grid.Row="1"                
+                    Background="{StaticResource brush_leading}"
+                    />
+            <StackPanel Grid.Column="0"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Orientation="Horizontal"
+                        >
+                <RadioButton Content="{x:Static resources:Language.Shell_RadioButton_Dashboard}"
+                             Command="{Binding ShowDashboardCommand}"
+                             Height="50"
+                             Width="200"
+                             GroupName="topRibbonGroup"
+                             Style="{StaticResource RadioButton_style_iconAndText}"
+                             IsChecked="{Binding IsDashboardDisplayed, Mode=TwoWay}"
+                             help:ButtonIconHelper.IconKind="ViewDashboard"
+                             />
+                <RadioButton Content="{x:Static resources:Language.Shell_RadioButton_AddOrder}"
+                             Command="{Binding ShowAddOrderCommand}"
+                             Height="50"
+                             Width="200"
+                             GroupName="topRibbonGroup"
+                             Style="{StaticResource RadioButton_style_iconAndText}"
+                             IsChecked="{Binding IsAddOrderDisplayed, Mode=TwoWay}"
+                             help:ButtonIconHelper.IconKind="ViewGridAdd"
+                             />
+                <RadioButton Content="{x:Static resources:Language.Shell_RadioButton_ViewOrders}"
+                             Command="{Binding ShowViewOrdersCommand}"
+                             Height="50"
+                             Width="200"
+                             GroupName="topRibbonGroup"
+                             Style="{StaticResource RadioButton_style_iconAndText}"
+                             IsChecked="{Binding IsViewOrdersDisplayed, Mode=TwoWay}"
+                             help:ButtonIconHelper.IconKind="ViewList"
+                             />
+            </StackPanel>
+
+            <Button Grid.Column="1"
+                    Grid.Row="0"
+                    Command="{Binding DragWindowCommand}"
+                    Style="{StaticResource button_style_drag}"
+                    PreviewMouseLeftButtonDown="DragButton_PreviewMouseLeftButtonDown"
+                    />
+
+            <StackPanel Grid.Column="2"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Orientation="Horizontal"
+                        >
+                <Button Command="{Binding LogoutCommand}"
+                        Height="50"
+                        Width="50"
+                        Style="{StaticResource button_style_iconShell}"
+                        help:ButtonIconHelper.IconKind="LogoutVariant"
+                        />
+                <RadioButton Command="{Binding ShowInfoCommand}"
+                             IsChecked="{Binding IsInfoDisplayed, Mode=TwoWay}"
+                             Height="50"
+                             Width="50"
+                             GroupName="topRibbonGroup"
+                             Style="{StaticResource RadioButton_style_iconOnly}"
+                             help:ButtonIconHelper.IconKind="InformationBoxOutline"
+                             />
+                <RadioButton Command="{Binding ShowSettingsCommand}"
+                             IsChecked="{Binding IsSettingsDisplayed, Mode=TwoWay}"
+                             Height="50"
+                             Width="50"
+                             GroupName="topRibbonGroup"
+                             Style="{StaticResource RadioButton_style_iconOnly}"
+                             help:ButtonIconHelper.IconKind="Tune"
+                             />
+            </StackPanel>
+
+            <Button Grid.Column="3"
+                    Grid.Row="0"
+                    Command="{Binding DragWindowCommand}"
+                    Style="{StaticResource button_style_drag}"
+                    PreviewMouseLeftButtonDown="DragButton_PreviewMouseLeftButtonDown"
+                    />
+
+            <StackPanel Grid.Column="4"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Orientation="Horizontal"
+                        >
+                <Button Command="{Binding MinimizeWindowCommand}"
+                        Height="50"
+                        Width="50"
+                        Style="{StaticResource button_style_iconShell}"
+                        help:ButtonIconHelper.IconKind="WindowMinimize"
+                        />
+                <Button Command="{Binding MaximizeWindowCommand}"
+                        Height="50"
+                        Width="50"
+                        Style="{StaticResource button_style_iconShell}"
+                        help:ButtonIconHelper.IconKind="WindowMaximize"
+                        />
+                <Button Command="{Binding ExitCommand}"
+                        Height="50"
+                        Width="50"
+                        Style="{StaticResource button_style_iconShell}"
+                        help:ButtonIconHelper.IconKind="WindowClose"
+                        />
+            </StackPanel>
+
+            <ContentControl Grid.Column="0"
+                            Grid.ColumnSpan="5"
+                            Grid.Row="3" 
+                            Content="{Binding ShellCurrentViewModel}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Stretch"
+                            />
+        </Grid>     
+    </materialDesign:DialogHost>
+</UserControl>

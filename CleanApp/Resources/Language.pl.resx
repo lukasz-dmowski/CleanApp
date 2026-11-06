@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Login_TextBlock_Welcome" xml:space="preserve">
+    <value>Witaj, zaloguj się</value>
+  </data>
+  <data name="Universal_TextBlock_AppName" xml:space="preserve">
+    <value>CleanApp.</value>
+  </data>
+  <data name="Universal_TextBlock_Lenght_HelperText" xml:space="preserve">
+    <value>minimum 1 znak</value>
+  </data>
+  <data name="Universal_TextBlock_AppDescription" xml:space="preserve">
+    <value>Twój manager biznesu.</value>
+  </data>
+  <data name="Login_Button_Exit" xml:space="preserve">
+    <value>Wyjdź</value>
+  </data>
+  <data name="View_Button_Undo" xml:space="preserve">
+    <value>Cofnij</value>
+  </data>
+  <data name="View_Button_Update" xml:space="preserve">
+    <value>Zaktualizuj zamówienie</value>
+  </data>
+  <data name="View_CheckBox_WasClientNotofied" xml:space="preserve">
+    <value>Powiadomienie klienta</value>
+  </data>
+  <data name="View_CheckBox_FilterPending" xml:space="preserve">
+    <value>Częściowo</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderPending" xml:space="preserve">
+    <value>Oczekujące</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionPending" xml:space="preserve">
+    <value>Żaden element nie został ukończony</value>
+  </data>
+  <data name="View_CheckBox_FilterCollected" xml:space="preserve">
+    <value>Odebrane</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderCollected" xml:space="preserve">
+    <value>Odebrane</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionCollected" xml:space="preserve">
+    <value>Zamówienie odebrane przez klienta</value>
+  </data>
+  <data name="Dashboard_TextBlock_TitleSchedule" xml:space="preserve">
+    <value>Termin zamówienia</value>
+  </data>
+  <data name="Dashboard_TextBlock_SearchBy" xml:space="preserve">
+    <value>Wyszukaj id / klienta / telefon</value>
+  </data>
+  <data name="Dashboard_TextBlock_TitleReadiness" xml:space="preserve">
+    <value>Realizacja zamówienia</value>
+  </data>
+  <data name="Dashboard_TextBlock_TitleNotification" xml:space="preserve">
+    <value>Powiadomienie klienta</value>
+  </data>
+  <data name="Dashboard_TextBlock_TitleCollection" xml:space="preserve">
+    <value>Odebranie przez klienta</value>
+  </data>
+  <data name="View_CheckBox_FilterNotCollected" xml:space="preserve">
+    <value>Nie odebrane</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderNotCollected" xml:space="preserve">
+    <value>Nie odebrane</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionNotCollected" xml:space="preserve">
+    <value>Zamówienie oczekuje na klienta</value>
+  </data>
+  <data name="View_CheckBox_FilterCompleted" xml:space="preserve">
+    <value>Zakończone</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderCompleted" xml:space="preserve">
+    <value>Zakończone</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionCompleted" xml:space="preserve">
+    <value>Poinformuj klienta o odbiorze</value>
+  </data>
+  <data name="View_CheckBox_FilterOverdue" xml:space="preserve">
+    <value>Zaległe</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderOverdue" xml:space="preserve">
+    <value>Zaległe</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionOverdue" xml:space="preserve">
+    <value>Zamówienie nie ukończone w terminie</value>
+  </data>
+  <data name="View_CheckBox_FilterToday" xml:space="preserve">
+    <value>Na dziś</value>
+  </data>
+  <data name="View_CheckBox_FilterUpcoming" xml:space="preserve">
+    <value>Przyszłe</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderUpcoming" xml:space="preserve">
+    <value>Przyszłe</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionUpcoming" xml:space="preserve">
+    <value>Zamówienie z dalszym terminem</value>
+  </data>
+  <data name="View_CheckBox_FilterNotified" xml:space="preserve">
+    <value>Powiadomiony</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderNotified" xml:space="preserve">
+    <value>Powiadomiony</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionNotified" xml:space="preserve">
+    <value>Zamówienie oczekuje na klienta</value>
+  </data>
+  <data name="View_CheckBox_FilterNotNotified" xml:space="preserve">
+    <value>Nie powiadomiony</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderNotNotified" xml:space="preserve">
+    <value>Nie powiadomiony</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionNotNotified" xml:space="preserve">
+    <value>Poinformuj klienta o odbiorze</value>
+  </data>
+  <data name="View_CheckBox_FilterPartially" xml:space="preserve">
+    <value>Oczekujące</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderPartially" xml:space="preserve">
+    <value>Rozpoczęte</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionPartially" xml:space="preserve">
+    <value>Niektóre elementy zostały ukończone</value>
+  </data>
+  <data name="View_CheckBox_WasOrderCollected" xml:space="preserve">
+    <value>Odbiór zamówienia</value>
+  </data>
+  <data name="View_ListView_ColumnName" xml:space="preserve">
+    <value>Nazwa klienta</value>
+  </data>
+  <data name="View_ListView_ColumnTelephone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="View_ListView_ColumnStartDate" xml:space="preserve">
+    <value>Początek</value>
+  </data>
+  <data name="View_ListView_ColumnDueDate" xml:space="preserve">
+    <value>Termin</value>
+  </data>
+  <data name="View_ListView_ColumnType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Add_ListView_ColumnType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="View_ListView_ColumnStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="View_ListView_ColumnEndDate" xml:space="preserve">
+    <value>Koniec</value>
+  </data>
+  <data name="View_Button_Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="View_Button_Print" xml:space="preserve">
+    <value>Drukuj</value>
+  </data>
+  <data name="Login_Button_Login" xml:space="preserve">
+    <value>Zaloguj</value>
+  </data>
+  <data name="Settings_Button_CopyPath" xml:space="preserve">
+    <value>Kopiuj ścieżkę</value>
+  </data>
+  <data name="Settings_Button_Browse" xml:space="preserve">
+    <value>Przeglądaj</value>
+  </data>
+  <data name="Settings_Button_Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="Add_Button_Clear" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="Add_Button_Add" xml:space="preserve">
+    <value>Dodaj zamówienie</value>
+  </data>
+  <data name="Universal_TextBox_Name_Hint" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="Info_TextBox_EnterpriseName_Hint" xml:space="preserve">
+    <value>Nazwa firmy</value>
+  </data>
+  <data name="Info_TextBox_OwnerName_Hint" xml:space="preserve">
+    <value>Nazwa właściciela</value>
+  </data>
+  <data name="Info_TextBox_StreetName_Hint" xml:space="preserve">
+    <value>Ulica</value>
+  </data>
+  <data name="Info_TextBox_StreetNumber_Hint" xml:space="preserve">
+    <value>Numer</value>
+  </data>
+  <data name="Info_TextBox_Telephone_Hint" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Info_Button_Undo" xml:space="preserve">
+    <value>Cofnij</value>
+  </data>
+  <data name="Info_Button_Save" xml:space="preserve">
+    <value>Zapisz zmiany</value>
+  </data>
+  <data name="Info_Button_Clear" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="Info_TextBox_ExtraInfo" xml:space="preserve">
+    <value>Dodatkowe informacje</value>
+  </data>
+  <data name="Info_TextBox_CityName_Hint" xml:space="preserve">
+    <value>Miejscowość</value>
+  </data>
+  <data name="Info_TextBox_CityCode_Hint" xml:space="preserve">
+    <value>Kod pocztowy</value>
+  </data>
+  <data name="Settings_TextBox_Username_Hint" xml:space="preserve">
+    <value>Nowa nazwa</value>
+  </data>
+  <data name="Settings_TextBox_Password_Hint" xml:space="preserve">
+    <value>Nowe hasło</value>
+  </data>
+  <data name="Settings_TextBox_PasswordConfirmation_Hint" xml:space="preserve">
+    <value>Potwierdź hasło</value>
+  </data>
+  <data name="Settings_TextBox_UsernameConfirmation_Hint" xml:space="preserve">
+    <value>Potwierdź nazwę</value>
+  </data>
+  <data name="Settings_TextBox_HeaderBackup" xml:space="preserve">
+    <value>Zmień lokalizację kopii zapasowej</value>
+  </data>
+  <data name="Settings_TextBox_HeaderLogin" xml:space="preserve">
+    <value>Zmień dane logowania</value>
+  </data>
+  <data name="Settings_TextBox_DescriptionBackup" xml:space="preserve">
+    <value>Kopia zapasowa będzie tworzona przy zamknięciu programu</value>
+  </data>
+  <data name="Settings_TextBox_DescriptionLogin" xml:space="preserve">
+    <value>Dane logowania konta administatora pozostaną niezmienione</value>
+  </data>
+  <data name="Universal_TextBox_SearchPhrase_Hint" xml:space="preserve">
+    <value>Wyszukaj frazę</value>
+  </data>
+  <data name="Universal_TextBox_Telephone_Hint" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Dialog_Button_Yes" xml:space="preserve">
+    <value>Tak</value>
+  </data>
+  <data name="Dialog_Button_No" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="Dialog_TextBlock_DeleteOrder" xml:space="preserve">
+    <value>Czy chcesz usunąć zamówienie?</value>
+  </data>
+  <data name="Dialog_TextBlock_SavePdf" xml:space="preserve">
+    <value>Czy chcesz zapisać pdf?</value>
+  </data>
+  <data name="Universal_DatePicker_StartDate_Hint" xml:space="preserve">
+    <value>Początek</value>
+  </data>
+  <data name="Universal_DatePicker_EndDate_Hint" xml:space="preserve">
+    <value>Koniec</value>
+  </data>
+  <data name="Universal_DatePicker_DueDate_Hint" xml:space="preserve">
+    <value>Termin</value>
+  </data>
+  <data name="Shell_RadioButton_Dashboard" xml:space="preserve">
+    <value>Panel zamówień</value>
+  </data>
+  <data name="Shell_RadioButton_ViewOrders" xml:space="preserve">
+    <value>Lista zamówień</value>
+  </data>
+  <data name="Shell_RadioButton_AddOrder" xml:space="preserve">
+    <value>Dodaj zamówienie</value>
+  </data>
+  <data name="Dashboard_TextBlock_HeaderToday" xml:space="preserve">
+    <value>Na dziś</value>
+  </data>
+  <data name="Dashboard_TextBlock_DescriptionToday" xml:space="preserve">
+    <value>Zamówienie do ukończenia dziś</value>
+  </data>
+</root>
